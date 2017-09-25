@@ -48,56 +48,53 @@ class Client
         $length=40+strlen($message);
         $uuid=md5(uniqid(microtime(true),true)) . '\0';
         $this->client->send(pack("C",3));      //消息类型
-        $this->client->send($uuid);          //请求者ID  
         $this->client->send(pack("C",0));    //服务端响应包体是否需要加密    0-不加密  1-加密；如果需要加密，请先请求密钥
         $this->client->send(pack("C",0));    //0-未压缩 1-压缩
         $this->client->send(pack("N",$length));  //整个消息的长度(包头+包体)
+        $this->client->send($uuid);          //请求者ID
         $this->client->send($message);
 
         //根据服务端设置60S请求一次心跳数据
         swoole_timer_tick(12000, function() use($cli,$uuid){
             //发送心跳数据
-            $this->client->send(pack("C",1));      //消息类型 暂定3为心跳请求
-            $this->client->send($uuid);          //请求者ID
-            $this->client->send(pack("C",0));    //服务端响应包体是否需要加密    0-不加密  1-加密；如果需要加密，请先请求密钥
-            $this->client->send(pack("C",0));    //0-未压缩 1-压缩；
-            $this->client->send(pack("N",39));  //整个消息的长度
+            $this->client->send(pack("C",1));     //消息类型 暂定3为心跳请求
+            $this->client->send(pack("C",0));     //服务端响应包体是否需要加密    0-不加密  1-加密；如果需要加密，请先请求密钥
+            $this->client->send(pack("C",0));     //0-未压缩 1-压缩；
+            $this->client->send(pack("N",40));    //整个消息的长度
+            $this->client->send($uuid);                         //请求者ID
         });
 
     }
 
     public function onReceive( $cli, $data ) {
-  
-        //获取整个消息的长度
-        $msg_length=unpack("N",$data)[1];
-        echo "整个消息的长度:".PHP_EOL;
-        echo $msg_length.PHP_EOL;
-        $data=substr($data,4);
+
         //消息类型
         $msg_type=unpack("C",$data)[1];
         // TODO 根据消息类型不同进行处理
-        echo "消息类型:".PHP_EOL;
-        echo $msg_type.PHP_EOL;
-
+        echo "消息类型:".$msg_type.PHP_EOL;
         $data=substr($data,1);
-        //请求者ID
-        $uuid=substr($data,0,32);
-        // TODO 记录uuid作为请求者的唯一ID
-        echo "请求者ID:".PHP_EOL;
-        echo $uuid.PHP_EOL;
 
-        $data=substr($data,32);
         //服务端响应包体是否需要加密标识  0-不需要加密  1-需要加密
         $replyCipher=unpack("C",$data)[1];
         // TODO 根据请求进行加密处理
-        echo "响应包体是否加密标识:".PHP_EOL;
-        echo $replyCipher.PHP_EOL;
-
+        echo "响应包体是否加密标识:".$replyCipher.PHP_EOL;
         $data=substr($data,1);
+
         //获取包体是否需要压缩标识  0-未压缩 1-压缩
         $compress=unpack("C",$data)[1];
-        echo "包体是否压缩标识:".PHP_EOL;
-        echo $compress.PHP_EOL;
+        echo "包体是否压缩标识:".$compress.PHP_EOL;
+        $data=substr($data,1);
+
+        //获取整个消息的长度
+        $msg_length=unpack("N",$data)[1];
+        echo "整个消息的长度:".$msg_length.PHP_EOL;;
+        $data=substr($data,4);
+
+        //请求者ID
+        $uuid=substr($data,0,33);
+        // TODO 记录uuid作为请求者的唯一ID
+        echo "请求者ID:". $uuid.PHP_EOL;
+        $data=substr($data,33);
 
         //消息类型为4为应答非心跳消息
         if($msg_type === 4 ){
