@@ -80,7 +80,7 @@ class WebSocketClient
      */
     public function connect()
     {
-        $this->socket = new swoole_client(SWOOLE_SOCK_TCP);
+        $this->socket = new \swoole_client(SWOOLE_SOCK_TCP);
         if (!$this->socket->connect($this->host, $this->port))
         {
             return false;
@@ -106,7 +106,7 @@ class WebSocketClient
     public function close($code = self::CLOSE_NORMAL, $reason = '')
     {
         $data = pack('n', $code) . $reason;
-        return $this->socket->send(swoole_websocket_server::pack($data, self::OPCODE_CONNECTION_CLOSE, true));
+        return $this->socket->send(\swoole_websocket_server::pack($data, self::OPCODE_CONNECTION_CLOSE, true));
     }
 
     public function recv()
@@ -150,7 +150,7 @@ class WebSocketClient
             default:
                 return false;
         }
-        return $this->socket->send(swoole_websocket_server::pack($data, $_type, true, $masked));
+        return $this->socket->send(\swoole_websocket_server::pack($data, $_type, true, $masked));
     }
 
     /**
@@ -176,7 +176,7 @@ class WebSocketClient
             }
         }
 
-        $frame = swoole_websocket_server::unpack($response);
+        $frame = \swoole_websocket_server::unpack($response);
         if ($frame)
         {
             return $frame->data;
