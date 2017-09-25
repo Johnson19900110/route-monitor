@@ -9,6 +9,7 @@
 namespace App\Server;
 
 use App\Log\Writer;
+use App\Client\WebSocketClient;
 
 class RouteServer
 {
@@ -134,7 +135,7 @@ class RouteServer
             'fd' => $fd,
             'data' => base64_encode($data)
         );
-echo $param['data'];
+
         $serv->task(json_encode($param));
     }
 
@@ -180,7 +181,6 @@ echo $param['data'];
 
         //消息类型
         $msg_type = unpack("C", $data)[1];
-print_r(unpack("C", $data));
         $data = substr($data, 1);
         echo "消息类型:".$msg_type.PHP_EOL;
 
@@ -208,7 +208,9 @@ print_r(unpack("C", $data));
         echo $data;
 
 
-
+        $client = new WebSocketClient('127.0.0.1',9501);
+        $client->connect();
+        $client->send($data);
 
 
 

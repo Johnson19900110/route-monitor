@@ -303,11 +303,3 @@ class WebSocketClient
         return $token;
     }
 }
-
-$client = new WebSocketClient('127.0.0.1',9501);
-$client->connect();
-$client->send('WebSocketClient Test');
-//$recvData = "";
-//$tmp = $client->recv();
-//$recvData .= $tmp;
-//echo $recvData . PHP_EOL;
