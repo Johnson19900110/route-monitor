@@ -307,3 +307,7 @@ $prot = 9501;
 $client = new WebSocketClient($host,$prot);
 $client->connect();
 $client->send('WebSocketClient Test');
+$recvData = "";
+$tmp = $client->recv();
+$recvData .= $tmp;
+echo $recvData;
