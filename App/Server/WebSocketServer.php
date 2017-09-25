@@ -25,27 +25,28 @@ class WebSocketServer {
 
     public function onOpen($server, $request)
     {
-        $this->clients[] = $request->fd;
+	$this->clients[$request->fd] = '';
+	echo $request->fd . ' connect' . ' IP:' . $request->server['remote_addr'] . PHP_EOL;
     }
 
     public function onMessage($server, $frame)
     {
 	print_r($this->clients);
-        foreach ($this->clients as $v) {
-            $server->push($v, $frame->data);
+        foreach ($this->clients as $k=>$v) {
+            $server->push($k, $frame->data);
         }
     }
 
     public function onClose($server, $fd)
     {
-	echo $fd . 'disconnect' . PHP_EOL;
-        foreach ($this->clients as $k=>$v) {
+        /*foreach ($this->clients as $k=>$v) {
             if($v === $fd) {
                 $this->lock->lock();
                 unset($this->clients[$k]);
                 $this->lock->unlock();
             }
-        }
+        }*/
+	print_r($this->clients);
     }
 
 }
