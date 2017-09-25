@@ -12,7 +12,7 @@ class Client
 
     public function __construct() {
         //异步客户端
-        $this->client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC);
+        $this->client = new \swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC);
         $this->client->set(array(
            /* 'open_eof_check' => true,
             'package_eof' => "\r\n\r\n",*/
@@ -110,7 +110,7 @@ class Client
     }
 
     public function onClose( $cli) {
-        echo "Client close connection\n";
+        echo "WebSocketClient close connection\n";
 
     }
     public function onError() {

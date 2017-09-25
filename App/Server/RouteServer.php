@@ -103,7 +103,7 @@ class RouteServer
      */
     public function onConnect($serv, $fd, $from_id)
     {
-       // echo "Client {$fd} connect\n";
+       // echo "WebSocketClient {$fd} connect\n";
         $clientinfo = $serv->connection_info($fd);
         //可根据具体需求对客户端进行相关处理
         //暂对数据进行日志记录
@@ -151,7 +151,7 @@ class RouteServer
                 unset($this->clients[$uuid]);
             }
         }
-       // echo "Client {$fd} close connection\n";
+       // echo "WebSocketClient {$fd} close connection\n";
     }
 
     /**
@@ -176,25 +176,28 @@ class RouteServer
         $fd = $paramArr['fd'];
         $data = base64_decode($paramArr['data']);
         //先获取请求数据
-        //获取整个消息的长度
-        $msg_length = unpack("N", $data)[1];
-        $data = substr($data, 4);
+
         //消息类型
         $msg_type = unpack("C", $data)[1];
         $data = substr($data, 1);
-        //请求者ID
-        $uuid = substr($data, 0, 32);
-        $data = substr($data, 32);
+
         //服务端响应包体是否需要加密标识  0-不需要加密  1-需要加密  保留字段
         $replyCipher = unpack("C", $data)[1];
-		
         $data = substr($data, 1);
+
         //获取包体是否需要压缩标识  0-未压缩 1-压缩  保留字段
         $compress = unpack("C", $data)[1];
-		
-        //获取包体
         $data = substr($data, 1);
-		
+
+        //获取整个消息的长度
+        $msg_length = unpack("N", $data)[1];
+        $data = substr($data, 4);
+
+        //请求者ID
+        $uuid = substr($data, 0, 33);
+
+        //获取包体
+        $data = substr($data, 33);
 
         /**
          * 1-心跳请求消息
@@ -206,11 +209,11 @@ class RouteServer
             case 1:
                 //响应心跳
                 $msg_type = 2;
-                $serv->send($fd, pack("N", 39));
                 $serv->send($fd, pack("C", $msg_type));
-                $serv->send($fd, $uuid);
                 $serv->send($fd, pack("C", $replyCipher));
                 $serv->send($fd, pack("C", $compress));
+                $serv->send($fd, pack("N", 39));
+                $serv->send($fd, $uuid);
                 return "Task {$task_id}'s do heart";    //会将结果反馈给finish方法
                 break;
             case 3:
@@ -222,11 +225,16 @@ class RouteServer
                 //对推送消息进行业务处理
 				$msg_type = 4;
 				$length=39+strlen($data);
-				$serv->send($fd, pack("N", $length));
                 $serv->send($fd, pack("C", $msg_type));
-                $serv->send($fd, $uuid);
                 $serv->send($fd, pack("C", $replyCipher));
                 $serv->send($fd, pack("C", $compress));
+				$serv->send($fd, pack("N", $length));
+                $serv->send($fd, $uuid);
+
+                switch ($replyCipher) {
+                    case 0:
+                }
+
 				$serv->send($fd,$data);
                 break;
             default:
