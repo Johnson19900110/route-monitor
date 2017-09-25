@@ -85,8 +85,10 @@ class WebSocketClient
         {
             return false;
         }
+
         $this->socket->send($this->createHeader());
-        return $this->recv();
+	$res = $this->recv();
+        return $res;
     }
 
     public function getSocket()
@@ -310,4 +312,4 @@ $client->send('WebSocketClient Test');
 $recvData = "";
 $tmp = $client->recv();
 $recvData .= $tmp;
-echo $recvData;
+echo $recvData . PHP_EOL;
