@@ -507,3 +507,9 @@
 [2017-09-25 02:24:52 *12168.7]	WARNING	swSignal_callback: signal[1] callback is null.
 [2017-09-25 02:24:52 *12162.1]	WARNING	swSignal_callback: signal[1] callback is null.
 [2017-09-25 02:24:52 *12161.0]	WARNING	swSignal_callback: signal[1] callback is null.
+[2017-09-25 02:49:25 *12321.9]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=127.0.0.1:38812, length=50331648.
+[2017-09-25 02:52:13 *12320.8]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=127.0.0.1:38818, length=50331648.
+[2017-09-25 02:53:15 *12321.9]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=127.0.0.1:38845, length=50331648.
+[2017-09-25 02:54:29 *12321.9]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=127.0.0.1:38846, length=50331648.
+[2017-09-25 02:56:26 *12383.7]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=127.0.0.1:38852, length=50331648.
+[2017-09-25 02:59:00 *12402.7]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=127.0.0.1:38858, length=50331648.

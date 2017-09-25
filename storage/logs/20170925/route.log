@@ -83,3 +83,33 @@
   'connect_time' => '1970-01-01 08:00:00',
   'message' => '错误请求消息',
 )
+[2017-09-25 10:49:25] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 38812,
+  'connect_time' => '2017-09-25 10:49:18',
+)
+[2017-09-25 10:52:13] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 38818,
+  'connect_time' => '2017-09-25 10:52:03',
+)
+[2017-09-25 10:53:15] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 38845,
+  'connect_time' => '2017-09-25 10:53:03',
+)
+[2017-09-25 10:54:29] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 38846,
+  'connect_time' => '2017-09-25 10:54:18',
+)
+[2017-09-25 10:56:26] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 38852,
+  'connect_time' => '2017-09-25 10:56:23',
+)
+[2017-09-25 10:59:00] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 38858,
+  'connect_time' => '2017-09-25 10:58:56',
+)

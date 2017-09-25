@@ -41,12 +41,14 @@ class Client
     }
 
     public function onConnect( $cli) {
+	echo "Start\n";
         $message=json_encode([
             'code'=>'demo',
             'status'=>'1'
         ]);
         $length=40+strlen($message);
-        $uuid=md5(uniqid(microtime(true),true)) . '\0';
+        $uuid=md5(uniqid(microtime(true),true)) . "\0";
+	echo $uuid . PHP_EOL;
         $this->client->send(pack("C",3));      //消息类型
         $this->client->send(pack("C",0));    //服务端响应包体是否需要加密    0-不加密  1-加密；如果需要加密，请先请求密钥
         $this->client->send(pack("C",0));    //0-未压缩 1-压缩

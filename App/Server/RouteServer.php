@@ -103,7 +103,7 @@ class RouteServer
      */
     public function onConnect($serv, $fd, $from_id)
     {
-       // echo "WebSocketClient {$fd} connect\n";
+        echo "WebSocketClient {$fd} connect\n";
         $clientinfo = $serv->connection_info($fd);
         //可根据具体需求对客户端进行相关处理
         //暂对数据进行日志记录
@@ -134,6 +134,7 @@ class RouteServer
             'fd' => $fd,
             'data' => base64_encode($data)
         );
+echo $param['data'];
         $serv->task(json_encode($param));
     }
 
@@ -179,6 +180,7 @@ class RouteServer
 
         //消息类型
         $msg_type = unpack("C", $data)[1];
+print_r(unpack("C", $data));
         $data = substr($data, 1);
 
         //服务端响应包体是否需要加密标识  0-不需要加密  1-需要加密  保留字段
