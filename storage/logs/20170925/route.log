@@ -143,3 +143,8 @@
   'remote_port' => 39274,
   'connect_time' => '2017-09-25 13:27:03',
 )
+[2017-09-25 15:16:51] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 39789,
+  'connect_time' => '2017-09-25 15:16:47',
+)
