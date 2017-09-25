@@ -180,25 +180,30 @@ class RouteServer
         //消息类型
         $msg_type = unpack("C", $data)[1];
         $data = substr($data, 1);
+        echo "消息类型:".$msg_type.PHP_EOL;
 
         //服务端响应包体是否需要加密标识  0-不需要加密  1-需要加密  保留字段
         $replyCipher = unpack("C", $data)[1];
         $data = substr($data, 1);
+        echo "响应包体是否加密标识:".$replyCipher.PHP_EOL;
 
         //获取包体是否需要压缩标识  0-未压缩 1-压缩  保留字段
         $compress = unpack("C", $data)[1];
         $data = substr($data, 1);
+        echo "包体是否压缩标识:".$compress.PHP_EOL;
 
         //获取整个消息的长度
         $msg_length = unpack("N", $data)[1];
         $data = substr($data, 4);
+        echo "整个消息的长度:".$msg_length.PHP_EOL;
 
         //请求者ID
         $uuid = substr($data, 0, 33);
+        echo "请求者ID:". $uuid.PHP_EOL;
 
         //获取包体
         $data = substr($data, 33);
-
+        echo $data;
         /**
          * 1-心跳请求消息
          * 2-心跳应答消息

@@ -87,7 +87,7 @@ class Client
 
         //获取整个消息的长度
         $msg_length=unpack("N",$data)[1];
-        echo "整个消息的长度:".$msg_length.PHP_EOL;;
+        echo "整个消息的长度:".$msg_length.PHP_EOL;
         $data=substr($data,4);
 
         //请求者ID
