@@ -513,3 +513,7 @@
 [2017-09-25 02:54:29 *12321.9]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=127.0.0.1:38846, length=50331648.
 [2017-09-25 02:56:26 *12383.7]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=127.0.0.1:38852, length=50331648.
 [2017-09-25 02:59:00 *12402.7]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=127.0.0.1:38858, length=50331648.
+[2017-09-25 03:05:47 *12554.8]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=127.0.0.1:38889, length=50331648.
+[2017-09-25 03:06:38 *12555.9]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=127.0.0.1:38892, length=50331648.
+[2017-09-25 03:25:14 *12608.6]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=172.30.72.76:9744, length=539959368.
+[2017-09-25 03:25:15 *12610.8]	WARNING	swProtocol_recv_check_length: package is too big, remote_addr=172.30.72.76:9745, length=539959368.

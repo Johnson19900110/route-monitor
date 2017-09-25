@@ -14,8 +14,8 @@
 </div>
 <script>
     var msg = document.getElementById("msg");
-//    var wsServer = 'ws://10.10.83.233:9501';
-    var wsServer = 'ws://127.0.0.1:9501';
+    var wsServer = 'ws://10.10.83.233:9501';
+
 
     //调用websocket对象建立连接：
     var websocket = new WebSocket(wsServer);
@@ -29,6 +29,7 @@
          CLOSED    3    The connection is closed or couldn't be opened.
          */
         msg.innerHTML = websocket.readyState+"连接成功！";
+	websocket.send('test');
 //        msg.innerHTML = "连接成功！<br>";
     };
 

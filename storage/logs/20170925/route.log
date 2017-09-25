@@ -113,3 +113,33 @@
   'remote_port' => 38858,
   'connect_time' => '2017-09-25 10:58:56',
 )
+[2017-09-25 11:05:47] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 38889,
+  'connect_time' => '2017-09-25 11:05:41',
+)
+[2017-09-25 11:06:38] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 38892,
+  'connect_time' => '2017-09-25 11:06:26',
+)
+[2017-09-25 11:12:23] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 38910,
+  'connect_time' => '2017-09-25 11:12:18',
+)
+[2017-09-25 11:25:14] local.INFO: array (
+  'remote_ip' => '172.30.72.76',
+  'remote_port' => 9744,
+  'connect_time' => '2017-09-25 11:25:03',
+)
+[2017-09-25 11:25:15] local.INFO: array (
+  'remote_ip' => '172.30.72.76',
+  'remote_port' => 9745,
+  'connect_time' => '2017-09-25 11:25:03',
+)
+[2017-09-25 13:27:06] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 39274,
+  'connect_time' => '2017-09-25 13:27:03',
+)
