@@ -3,9 +3,12 @@ namespace App\Server;
 
 class WebSocketServer {
     private $clients = array();
+    private $lock;
 
     public function __construct()
     {
+        $this->lock = new \swoole_lock(SWOOLE_MUTEX);
+
         $server = new \swoole_websocket_server("0.0.0.0", 9501);
         $server->set(array(
             'daemonize' => 0,
@@ -38,7 +41,9 @@ class WebSocketServer {
 	echo $fd . 'disconnect' . PHP_EOL;
         foreach ($this->clients as $k=>$v) {
             if($v === $fd) {
+                $this->lock->lock();
                 unset($this->clients[$k]);
+                $this->lock->unlock();
             }
         }
     }
