@@ -25,12 +25,13 @@ class WebSocketServer {
 
     public function onOpen($server, $request)
     {
+        $this->clients[] = $request->fd;
         print_r($request);
     }
 
     public function onMessage($server, $frame)
     {
-        print_r($frame);
+        print_r($server->connections);
         $server->task($frame);
     }
 
@@ -47,7 +48,11 @@ class WebSocketServer {
 
     public function onClose($server, $fd)
     {
-        echo $fd . 'closed';
+        foreach ($this->clients as $v) {
+            if($v === $fd) {
+                unset($v);
+            }
+        }
     }
 
 }
