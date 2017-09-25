@@ -91,7 +91,7 @@ class RouteServer
     {
         // 设置进程名称
         cli_set_process_title("root_server");
-       // echo "Start\n";
+        echo "Start\n";
     }
 
     /**
@@ -212,7 +212,7 @@ class RouteServer
                 $serv->send($fd, pack("C", $msg_type));
                 $serv->send($fd, pack("C", $replyCipher));
                 $serv->send($fd, pack("C", $compress));
-                $serv->send($fd, pack("N", 39));
+                $serv->send($fd, pack("N", 40));
                 $serv->send($fd, $uuid);
                 return "Task {$task_id}'s do heart";    //会将结果反馈给finish方法
                 break;
@@ -224,16 +224,16 @@ class RouteServer
                 $this->clients[$uuid]=$fd;
                 //对推送消息进行业务处理
 				$msg_type = 4;
-				$length=39+strlen($data);
+				$length=40+strlen($data);
                 $serv->send($fd, pack("C", $msg_type));
                 $serv->send($fd, pack("C", $replyCipher));
                 $serv->send($fd, pack("C", $compress));
 				$serv->send($fd, pack("N", $length));
                 $serv->send($fd, $uuid);
 
-                switch ($replyCipher) {
-                    case 0:
-                }
+//                switch ($replyCipher) {
+//                    case 0:
+//                }
 
 				$serv->send($fd,$data);
                 break;
