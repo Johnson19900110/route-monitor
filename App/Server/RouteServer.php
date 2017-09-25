@@ -35,7 +35,7 @@ class RouteServer
             'dispatch_mode' => 2,  //数据包分发策略  默认为2 固定模式
             'package_max_length' => 81920,   //所能接收的包最大长度 根据实际情况自行配置
             'open_length_check' => true,   //打开固定包头协议解析功能
-            'package_length_offset' => 0,  //规定了包头中第几个字节开始是长度字段
+            'package_length_offset' => 3,  //规定了包头中第几个字节开始是长度字段
             //'package_body_offset' => 42,    //规定了包头的长度
             'package_body_offset' => 0,    //length的值包含了整个包（包头+包体）
             'package_length_type' => 'N',   //规定了长度字段的类型

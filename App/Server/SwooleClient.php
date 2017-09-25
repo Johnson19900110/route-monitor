@@ -18,7 +18,7 @@ class Client
             'package_eof' => "\r\n\r\n",*/
             'open_length_check'     => 1,
             'package_length_type'   => 'N',
-            'package_length_offset' => 0,       //第N个字节是包长度的值
+            'package_length_offset' => 3,       //第N个字节是包长度的值
             'package_body_offset'   => 0,       //第几个字节开始计算长度
             'package_max_length'    => 2000000,  //协议最大长度
             'socket_buffer_size'     => 1024*1024*10, //10M缓存区
@@ -47,7 +47,7 @@ class Client
             'status'=>'1'
         ]);
         $length=40+strlen($message);
-        $uuid=md5(uniqid(microtime(true),true)) . "\0";
+        $uuid=md5(uniqid(microtime(true),true)) . "t";
 	echo $uuid . PHP_EOL;
         $this->client->send(pack("C",3));      //消息类型
         $this->client->send(pack("C",0));    //服务端响应包体是否需要加密    0-不加密  1-加密；如果需要加密，请先请求密钥
