@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Xc
- * Date: 2017/8/25
- * Time: 10:42
- */
 
 class WebSocketClient
 {
@@ -18,10 +12,13 @@ class WebSocketClient
         $this->client->on('Connect', array($this, 'onConnect'));
         $this->client->on('Receive', array($this, 'onReceive'));
         $this->client->on('Close', array($this, 'onClose'));
+        $this->client->on('Error', array($this, 'onError'));
+        $this->client->on('BufferFull', array($this, 'onBufferFull'));
+        $this->client->on('BufferEmpty', array($this, 'onBufferEmpty'));
     }
     public function connect($data) {
         $this->data = $data;
-        $fp = $this->client->connect("127.0.0.1", 9503 , 1);
+        $fp = $this->client->connect("127.0.0.1", 9501 , 1);
         if( !$fp ) {
             echo "Error: {$fp->errMsg}[{$fp->errCode}]\n";
             return;
@@ -42,6 +39,16 @@ class WebSocketClient
 
     public function onClose( $cli) {
         echo "WebSocketClient close connection\n";
+
+    }
+    public function onError() {
+    }
+
+    public function onBufferFull($cli){
+
+    }
+
+    public function onBufferEmpty($cli){
 
     }
 
