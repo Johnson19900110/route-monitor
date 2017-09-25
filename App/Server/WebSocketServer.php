@@ -6,31 +6,29 @@ class WebSocketServer {
 
     public function __construct()
     {
-        $server = new \swoole_server("0.0.0.0", 9501);
+        $server = new \swoole_websocket_server("0.0.0.0", 9501);
         $server->set(array(
             'daemonize' => 0,
             'worker_num' => 4,
             'max_request' => 1000,
-	    'open_websocket_protocol' => true
         ));
 
-        $server->on('connect', array($this, 'onConnect'));
-        $server->on('receive', array($this, 'onReceive'));
+        $server->on('open', array($this, 'onOpen'));
+        $server->on('message', array($this, 'onMessage'));
         $server->on('close', array($this, 'onClose'));
 
         $server->start();
     }
 
-    public function onConnect($server, $fd)
+    public function onOpen($server, $request)
     {
-        $this->clients[] = $fd;
+        $this->clients[] = $request->fd;
     }
 
-    public function onReceive($server, $fd, $from_id, $data)
+    public function onMessage($server, $frame)
     {
-echo $data . PHP_EOL . 'test';
         foreach ($this->clients as $v) {
-            $server->send($v, $data);
+            $server->push($v, $frame->data);
         }
     }
 
