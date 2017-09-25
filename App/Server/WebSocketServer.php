@@ -27,6 +27,7 @@ class WebSocketServer {
 
     public function onMessage($server, $frame)
     {
+	print_r($this->clients);
         foreach ($this->clients as $v) {
             $server->push($v, $frame->data);
         }
@@ -34,6 +35,7 @@ class WebSocketServer {
 
     public function onClose($server, $fd)
     {
+	echo $fd . 'disconnect' . PHP_EOL;
         foreach ($this->clients as $k=>$v) {
             if($v === $fd) {
                 unset($this->clients[$k]);
