@@ -27,24 +27,25 @@ class WebSocketServer {
     {
         $this->clients[] = $request->fd;
         print_r($request);
-        print_r($server->connections);
     }
 
     public function onMessage($server, $frame)
     {
-        print_r($server->connections);
         $server->task($frame);
     }
 
     public function onTask($server, $task_id, $from_id, $frame)
     {
-        echo $frame->data . PHP_EOL;
-        $server->finish('OK');
+//        echo $frame->data . PHP_EOL;
+        foreach ($this->clients as $v) {
+            $server->push($v, $frame->data);
+        }
+        $server->finish($frame->fd);
     }
 
     public function onFinish($server, $task_id, $data)
     {
-        echo $data . PHP_EOL;
+        echo $data . " push success" . PHP_EOL;
     }
 
     public function onClose($server, $fd)

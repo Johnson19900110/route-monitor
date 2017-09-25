@@ -40,7 +40,7 @@
     //onmessage 监听服务器数据推送
     websocket.onmessage = function (evt) {
         console.log(evt.data);
-//        msg.innerHTML += evt.data +'<br>';
+        msg.innerHTML += evt.data +'<br>';
     };
 
     //监听连接错误信息
