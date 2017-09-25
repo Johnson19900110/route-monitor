@@ -45,7 +45,7 @@ class WebSocketServer {
 
     public function onFinish($server, $task_id, $data)
     {
-        echo $data . " push success" . PHP_EOL;
+        echo $data . "  push success" . PHP_EOL;
     }
 
     public function onClose($server, $fd)
