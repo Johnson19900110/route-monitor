@@ -27,6 +27,7 @@ class WebSocketServer {
     {
         $this->clients[] = $request->fd;
         print_r($request);
+        print_r($server->connections);
     }
 
     public function onMessage($server, $frame)
