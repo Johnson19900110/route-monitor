@@ -101,7 +101,7 @@ class Client
         //消息类型为4为应答非心跳消息
         if($msg_type === 4 ){
             //获取包体
-            $data=substr($data,1);
+            $data=substr($data,0);
             echo "包体:".PHP_EOL;
             echo $data.PHP_EOL;
         }

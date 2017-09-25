@@ -206,6 +206,12 @@ print_r(unpack("C", $data));
         //获取包体
         $data = substr($data, 33);
         echo $data;
+
+
+
+
+
+
         /**
          * 1-心跳请求消息
          * 2-心跳应答消息
