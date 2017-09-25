@@ -1,0 +1,85 @@
+[2017-09-25 10:21:42] local.INFO: array (
+  'remote_ip' => '172.30.72.76',
+  'remote_port' => 4514,
+  'connect_time' => '2017-09-25 10:21:28',
+)
+[2017-09-25 10:21:44] local.INFO: array (
+  'remote_ip' => '172.30.72.76',
+  'remote_port' => 4517,
+  'connect_time' => '2017-09-25 10:21:43',
+)
+[2017-09-25 10:21:44] local.INFO: array (
+  'remote_ip' => '172.30.72.76',
+  'remote_port' => 4520,
+  'connect_time' => '2017-09-25 10:21:43',
+)
+[2017-09-25 10:21:45] local.INFO: array (
+  'remote_ip' => '172.30.72.76',
+  'remote_port' => 4521,
+  'connect_time' => '2017-09-25 10:21:43',
+)
+[2017-09-25 10:23:13] local.INFO: array (
+  'remote_ip' => '172.30.72.76',
+  'remote_port' => 4645,
+  'connect_time' => '2017-09-25 10:23:07',
+)
+[2017-09-25 10:23:15] local.INFO: array (
+  'remote_ip' => '172.30.72.76',
+  'remote_port' => 4648,
+  'connect_time' => '2017-09-25 10:23:07',
+)
+[2017-09-25 10:23:16] local.INFO: array (
+  'remote_ip' => '172.30.72.76',
+  'remote_port' => 4649,
+  'connect_time' => '2017-09-25 10:23:07',
+)
+[2017-09-25 10:23:16] local.INFO: array (
+  'remote_ip' => '172.30.72.76',
+  'remote_port' => 4650,
+  'connect_time' => '2017-09-25 10:23:07',
+)
+[2017-09-25 10:23:17] local.INFO: array (
+  'remote_ip' => '172.30.72.76',
+  'remote_port' => 4653,
+  'connect_time' => '2017-09-25 10:23:07',
+)
+[2017-09-25 10:23:17] local.INFO: array (
+  'remote_ip' => '172.30.72.76',
+  'remote_port' => 4654,
+  'connect_time' => '2017-09-25 10:23:07',
+)
+[2017-09-25 10:23:42] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 38712,
+  'connect_time' => '2017-09-25 10:23:37',
+)
+[2017-09-25 10:23:42] local.WARNING: array (
+  'remote_ip' => NULL,
+  'remote_port' => NULL,
+  'connect_time' => '1970-01-01 08:00:00',
+  'message' => '错误请求消息',
+)
+[2017-09-25 10:23:54] local.WARNING: array (
+  'remote_ip' => NULL,
+  'remote_port' => NULL,
+  'connect_time' => '1970-01-01 08:00:00',
+  'message' => '错误请求消息',
+)
+[2017-09-25 10:24:06] local.WARNING: array (
+  'remote_ip' => NULL,
+  'remote_port' => NULL,
+  'connect_time' => '1970-01-01 08:00:00',
+  'message' => '错误请求消息',
+)
+[2017-09-25 10:24:18] local.WARNING: array (
+  'remote_ip' => NULL,
+  'remote_port' => NULL,
+  'connect_time' => '1970-01-01 08:00:00',
+  'message' => '错误请求消息',
+)
+[2017-09-25 10:24:30] local.WARNING: array (
+  'remote_ip' => NULL,
+  'remote_port' => NULL,
+  'connect_time' => '1970-01-01 08:00:00',
+  'message' => '错误请求消息',
+)

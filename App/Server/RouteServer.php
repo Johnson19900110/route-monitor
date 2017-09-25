@@ -28,7 +28,7 @@ class RouteServer
         $this->serv->set(array(
             'worker_num' => 10,
             'reactor_num' => 5,
-            'daemonize' => true,
+            'daemonize' => false,
             'backlog' => 128,
             'task_worker_num' => 4,     //设置此参数后，服务器会开启异步task功能。此时可以使用task方法投递异步任务。
             'max_request' => 10000,

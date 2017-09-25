@@ -14,7 +14,7 @@
 </div>
 <script>
     var msg = document.getElementById("msg");
-    var wsServer = 'ws://10.10.83.233:9003';
+    var wsServer = 'ws://10.10.83.233:9503';
 
     //调用websocket对象建立连接：
     var websocket = new WebSocket(wsServer);
@@ -44,7 +44,7 @@
 
     //监听连接错误信息
     websocket.onerror = function (evt, e) {
-        console.log('Error occured: ' + evt.data);
+        console.log(evt.type);
     };
 
 //     setInterval(function(){
