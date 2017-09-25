@@ -17,9 +17,9 @@ class WebSocketClient
     public function __construct()
     {
         $this->client = new \swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC);
-        $this->client->on('Connect', array($this, 'onConnect'));
-        $this->client->on('Receive', array($this, 'onReceive'));
-        $this->client->on('Close', array($this, 'onClose'));
+        $this->client->on('connect', array($this, 'onConnect'));
+        $this->client->on('receive', array($this, 'onReceive'));
+        $this->client->on('close', array($this, 'onClose'));
     }
 
     public function sendData($data)
