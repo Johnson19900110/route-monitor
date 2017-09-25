@@ -304,12 +304,10 @@ class WebSocketClient
     }
 }
 
-$host = '127.0.0.1';
-$prot = 9501;
-$client = new WebSocketClient($host,$prot);
+$client = new WebSocketClient('127.0.0.1',9501);
 $client->connect();
 $client->send('WebSocketClient Test');
-$recvData = "";
-$tmp = $client->recv();
-$recvData .= $tmp;
-echo $recvData . PHP_EOL;
+//$recvData = "";
+//$tmp = $client->recv();
+//$recvData .= $tmp;
+//echo $recvData . PHP_EOL;
