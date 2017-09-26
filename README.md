@@ -9,7 +9,7 @@
 # 运行
 
 开启服务：
-将client目录配置到Nginx/Apache的虚拟主机目录中，使index.php可访问。 修改`config.php`中，IP和端口为对应的配置。
+将目录配置到Nginx/Apache的虚拟主机目录中，使index.php可访问。
 ``` bash
 #开启swoole_server端
 php App/App.php -i e
