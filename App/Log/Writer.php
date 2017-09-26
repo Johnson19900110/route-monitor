@@ -107,7 +107,7 @@ class Writer implements LoggerInterface
     /**
      * Log an informational message to the logs.
      *
-     * @param  string $message
+     * @param  mixed $message
      * @param  array $context
      * @return void
      */

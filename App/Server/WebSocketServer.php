@@ -26,13 +26,12 @@ class WebSocketServer {
 
     public function onOpen($server, $request)
     {
-	$this->clients[$request->fd] = '';
-	echo $request->fd . ' connect' . ' IP:' . $request->server['remote_addr'] . PHP_EOL;
+	    $this->clients[$request->fd] = '';
+	    echo $request->fd . ' connect' . ' IP:' . $request->server['remote_addr'] . PHP_EOL;
     }
 
     public function onMessage($server, $frame)
     {
-        print_r($this->server->connections);
         foreach ($this->server->connections as $fd) {
             $this->server->push($fd, $frame->data);
         }
