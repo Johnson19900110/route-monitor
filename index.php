@@ -28,9 +28,8 @@
          CLOSING    2    The connection is in the process of closing.
          CLOSED    3    The connection is closed or couldn't be opened.
          */
-        msg.innerHTML = websocket.readyState+"连接成功！";
-	websocket.send('test');
-//        msg.innerHTML = "连接成功！<br>";
+	//websocket.send('test');
+        msg.innerHTML = "连接成功！<br>";
     };
 
     //监听连接关闭
@@ -40,7 +39,7 @@
 
     //onmessage 监听服务器数据推送
     websocket.onmessage = function (evt) {
-        console.log(evt.data);
+        console.log(JSON.parse(evt.data));
         msg.innerHTML += evt.data +'<br>';
     };
 

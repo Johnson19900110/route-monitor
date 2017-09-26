@@ -148,3 +148,23 @@
   'remote_port' => 39789,
   'connect_time' => '2017-09-25 15:16:47',
 )
+[2017-09-25 17:41:18] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 40568,
+  'connect_time' => '2017-09-25 17:41:16',
+)
+[2017-09-25 17:44:51] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 40588,
+  'connect_time' => '2017-09-25 17:44:46',
+)
+[2017-09-25 17:47:53] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 40608,
+  'connect_time' => '2017-09-25 17:47:46',
+)
+[2017-09-25 18:16:23] local.INFO: array (
+  'remote_ip' => '127.0.0.1',
+  'remote_port' => 40852,
+  'connect_time' => '2017-09-25 18:16:16',
+)
